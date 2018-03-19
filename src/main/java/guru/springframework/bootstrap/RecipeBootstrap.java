@@ -4,6 +4,8 @@ import guru.springframework.domain.*;
 import guru.springframework.repositories.CategoryRepository;
 import guru.springframework.repositories.RecipeRepository;
 import guru.springframework.repositories.UnitOfMeasureRepository;
+import guru.springframework.repositories.reactive.CategoryReactiveRepository;
+import guru.springframework.repositories.reactive.RecipeReactiveRepository;
 import guru.springframework.repositories.reactive.UnitOfMeasureReactiveRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +30,12 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
     private final RecipeRepository recipeRepository;
     private final UnitOfMeasureRepository unitOfMeasureRepository;
 
-    @Autowired
-    UnitOfMeasureReactiveRepository unitOfMeasureReactiveRepository;
+//    @Autowired
+//    UnitOfMeasureReactiveRepository unitOfMeasureReactiveRepository;
+//    @Autowired
+//    CategoryReactiveRepository categoryReactiveRepository;
+//    @Autowired
+//    RecipeReactiveRepository recipeReactiveRepository;
 
     public RecipeBootstrap(CategoryRepository categoryRepository,
                            RecipeRepository recipeRepository, UnitOfMeasureRepository unitOfMeasureRepository) {
@@ -46,8 +52,12 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         recipeRepository.saveAll(getRecipes());
         log.debug("Loading Bootstrap Data");
 
-        log.error("##############################################");
-        log.error("Count: " + unitOfMeasureReactiveRepository.count().block().toString());
+//        log.error("##############################################");
+//        log.error("Count UOF Rep: " + unitOfMeasureReactiveRepository.count().block().toString());
+//        log.error("##############################################");
+//        log.error("Count Categories : " + categoryReactiveRepository.count().block().toString());
+//        log.error("##############################################");
+//        log.error("Count Recipes : " + recipeReactiveRepository.count().block().toString());
     }
 
     private void loadCategories(){
