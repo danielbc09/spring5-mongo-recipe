@@ -23,7 +23,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@Ignore
 public class IngredientControllerTest {
 
     @Mock
@@ -139,6 +138,8 @@ public class IngredientControllerTest {
 
     @Test
     public void testDeleteIngredient() throws Exception {
+
+        when(ingredientService.deleteById(anyString(), anyString())).thenReturn(Mono.empty());
 
         //then
         mockMvc.perform(get("/recipe/2/ingredient/3/delete")
